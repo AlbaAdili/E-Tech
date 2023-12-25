@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.quanity {
+    position: absolute;
+    background-color: #0c6efd;
+    border-radius: 50%;
+    color: white;
+    padding: 0px 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+footer .nav-link:hover {
+    text-decoration: underline;
+}
