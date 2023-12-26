@@ -27,20 +27,20 @@
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
                 <div class="col-md-3 mb-2 mb-md-0">
-                <a href="./home.html" class="d-inline-flex link-body-emphasis text-decoration-none">
+                <a href="#" class="d-inline-flex link-body-emphasis text-decoration-none">
                     <img src="{{ asset('images/logo.svg') }}" alt="Project Logo">
                 </a>
                 </div>
                 <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="./home.html" class="nav-link px-2 link-secondary">Home</a></li>
-                <li><a href="./about.html" class="nav-link px-2">About</a></li>
-                <li><a href="./shop.html" class="nav-link px-2">Shop</a></li>
-                <li><a href="./faq.html" class="nav-link px-2">FAQs</a></li>
-                <li><a href="./contact.html" class="nav-link px-2">Contact</a></li>
+                <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+                <li><a href="#" class="nav-link px-2">About</a></li>
+                <li><a href="#" class="nav-link px-2">Shop</a></li>
+                <li><a href="#" class="nav-link px-2">FAQs</a></li>
+                <li><a href="#" class="nav-link px-2">Contact</a></li>
                 </ul>
                 <div class="col-lg-3 text-end">
-                <a href="./login.html"><button type="button" class="btn btn-outline-primary me-2">Login</button></a>
-                <a href="./signup.html"><button type="button" class="btn btn-primary">Sign up</button></a>
+                <a href="#"><button type="button" class="btn btn-outline-primary me-2">Login</button></a>
+                <a href="#"><button type="button" class="btn btn-primary">Sign up</button></a>
                 <svg class="bi bi-cart" width="30" height="30" fill="#0c6efd"><use xlink:href="#cart"/></svg>
                 <span class="quanity">0</span>
                 </div>
@@ -58,20 +58,20 @@
           <div class="col-6 col-md-2 mb-3">
             <h5>Site Links</h5>
             <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="./home.html" class="nav-link p-0 text-body-secondary">Home</a></li>
-            <li class="nav-item mb-2"><a href="./about.html" class="nav-link p-0 text-body-secondary">About</a></li>
-            <li class="nav-item mb-2"><a href="./shop.html" class="nav-link p-0 text-body-secondary">Shop</a></li>
-            <li class="nav-item mb-2"><a href="./faq.html" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-            <li class="nav-item mb-2"><a href="./contact.html" class="nav-link p-0 text-body-secondary">Contact</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Shop</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Contact</a></li>
           </div>
           <div class="col-6 col-md-2 mb-3">
             <h5>FAQs</h5>
             <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="./faq.html" class="nav-link p-0 text-body-secondary">Payment</a></li>
-            <li class="nav-item mb-2"><a href="./faq.html" class="nav-link p-0 text-body-secondary">Track order</a></li>
-            <li class="nav-item mb-2"><a href="./faq.html" class="nav-link p-0 text-body-secondary">Return and Exchange</a></li>
-            <li class="nav-item mb-2"><a href="./faq.html" class="nav-link p-0 text-body-secondary">Warranty</a></li>
-            <li class="nav-item mb-2"><a href="./faq.html" class="nav-link p-0 text-body-secondary">International shipping</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Payment</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Track order</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Return and Exchange</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Warranty</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">International shipping</a></li>
           </div>
           <div class="col-6 col-md-2 mb-3">
             <h5>Customer Support</h5>
