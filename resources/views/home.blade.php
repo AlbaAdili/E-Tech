@@ -26,4 +26,21 @@
           </div>
         </div>
     </section> 
+    <section>
+      <div class="px-4 py-5 mt-5 text-center border-top">
+        <h1 class="display-4 fw-bold text-body-emphasis">Abous Us</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">Whether you're an enthusiast for technology, a professional seeking best-in tools, or simply someone who loves the convenience of technology, we're here to meet your needs. Explore our carefully chosen selection of products, and experience the future of tech with us.</p>
+          <div class="d-grid d-sm-flex justify-content-sm-center mb-5">
+            <a href="#"><button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Read more</button></a>
+            <button type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="backToTop()">Back to top</button>
+          </div>
+        </div>
+        <div class="overflow-hidden">
+          <div class="container px-5">
+            <img src="{{ asset('images/apple-newsroom.png') }}"" class="img-fluid rounded-3" alt="Apple Newsroom" width="700" height="500" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
 @endsection
