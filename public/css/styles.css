@@ -34,3 +34,54 @@ body {
 footer .nav-link:hover {
     text-decoration: underline;
 }
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+.card-img-top {
+    width: 280px;
+}
+.heart, .heart-fill {
+    cursor: pointer;
+}
+.form {
+    max-width: 500px;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+.form-content {
+    margin: 25px 0;
+}
+.form-label {
+    margin-bottom: 5px;
+}
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.button-primary {
+    border-color: #0c6efd;
+    color: #0c6efd;
+    cursor: pointer;
+    padding: 10px;
+}
+.button-primary:hover {
+    background-color: #0c6efd;
+    color: white;
+}
+.button-secondary, .button-secondary:hover {
+    background-color: #0c6efd;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+}
+input[type="file"] {
+    display: none;
+}
+

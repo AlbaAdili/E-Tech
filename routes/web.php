@@ -1,18 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::resource('home', \App\Http\Controllers\HomeController::class);
+Route::resource('product', \App\Http\Controllers\ProductController::class);
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
+Route::get('product', [\App\Http\Controllers\ProductController::class, 'index'])->name('product.index');
+Route::post('product', [\App\Http\Controllers\ProductController::class, 'store'])->name('product.store');
+
+
