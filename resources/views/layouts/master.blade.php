@@ -22,19 +22,25 @@
         <symbol id="facebook" viewBox="0 0 16 16">
           <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
         </symbol>
+        <symbol id="heart" viewBox="0 0 16 16">
+          <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+        </symbol>
+        <symbol id="heart-fill" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+        </symbol>
     </svg>
     <header>
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
                 <div class="col-md-3 mb-2 mb-md-0">
-                <a href="#" class="d-inline-flex link-body-emphasis text-decoration-none">
+                <a href="{{ route('home.index') }}" class="d-inline-flex link-body-emphasis text-decoration-none">
                     <img src="{{ asset('images/logo.svg') }}" alt="Project Logo">
                 </a>
                 </div>
                 <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+                <li><a href="#" class="nav-link px-2">Home</a></li>
                 <li><a href="#" class="nav-link px-2">About</a></li>
-                <li><a href="#" class="nav-link px-2">Shop</a></li>
+                <li><a href="{{ route('product.index') }}" class="nav-link px-2">Shop</a></li>
                 <li><a href="#" class="nav-link px-2">FAQs</a></li>
                 <li><a href="#" class="nav-link px-2">Contact</a></li>
                 </ul>
