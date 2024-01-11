@@ -11,7 +11,7 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <div class="d-flex">
-                        <a href="#" class="btn button-warning">Edit</a>
+                    <a href="{{ route('product.edit', ['product' => $product->id]) }}" class="btn button-warning">Edit</a>
                         <a href="{{route('product.destory',['product'=>$product->id])}}" class="btn button-danger ms-2">Delete</a>
                     </div>
                 </div>
