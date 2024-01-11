@@ -22,7 +22,7 @@
                 <span id="selectedFileName"></span>
             </div>
             <div class="form-content">
-                <button type="submit" class="btn button-secondary">Create Product</button>
+                <button type="submit" class="btn button-secondary mt-2">Create Product</button>
             </div>
         </form>
     </div>
