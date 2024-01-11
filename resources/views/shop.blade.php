@@ -11,8 +11,12 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <div class="d-flex">
-                    <a href="{{ route('product.edit', ['product' => $product->id]) }}" class="btn button-warning">Edit</a>
-                        <a href="{{route('product.destory',['product'=>$product->id])}}" class="btn button-danger ms-2">Delete</a>
+                        <a href="{{ route('product.edit', ['product' => $product->id]) }}" class="btn button-warning">Edit</a>
+                        <form method="POST" action="{{ route('product.destory', ['product' => $product->id]) }}" onsubmit="return confirmDelete()">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn button-danger ms-2">Delete</button>
+                        </form>
                     </div>
                 </div>
                 <div style="height: 250px;"><img src="{{ asset('storage/' . $product->image) }}" class="card-img-top px-2" alt="{{$product->name}} Picture"></div>

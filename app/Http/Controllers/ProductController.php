@@ -80,9 +80,9 @@ class ProductController extends Controller
         return redirect()->route('product.index')->with('success', 'Updated Product');
     }
 
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::where("id",$id)->first();
 
         $imageFilename = str_replace('images/', '', $product->image);
     
