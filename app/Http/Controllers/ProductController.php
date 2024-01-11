@@ -54,14 +54,30 @@ class ProductController extends Controller
         //
     }
 
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $product = Product::where("id",$id)->first();
+        return view("edit-product",compact("product"));
     }
 
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'price' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,webp',
+        ]);
+    
+        $product = Product::where('id', $id)->first();
+        $product->name=$request->get('name');
+        $product->price=$request->get('price');
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->storeAs('public/images', $request->file('image')->getClientOriginalName());
+            $product->image = 'images/' . $request->file('image')->getClientOriginalName();
+        }
+        $product->save();
+
+        return redirect()->route('product.index')->with('success', 'Updated Product');
     }
 
     public function destroy(string $id)

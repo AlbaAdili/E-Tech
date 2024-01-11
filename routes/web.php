@@ -10,4 +10,5 @@ Route::resource('product', ProductController::class);
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('product', [ProductController::class, 'index'])->name('product.index');
 Route::post('product', [ProductController::class, 'store'])->name('product.store');
-Route::get('products/{product}/delete', [\App\Http\Controllers\ProductController::class,'destroy'])->name('product.destory');
+Route::put('product/{product}', [ProductController::class, 'update'])->name('product.update');
+Route::get('products/{product}/delete', [ProductController::class, 'destroy'])->name('product.destory');
