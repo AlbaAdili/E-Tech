@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <div class="d-flex">
                         <a href="#" class="btn button-warning">Edit</a>
-                        <a href="#" class="btn button-danger ms-2">Delete</a>
+                        <a href="{{route('product.destory',['product'=>$product->id])}}" class="btn button-danger ms-2">Delete</a>
                     </div>
                 </div>
                 <div style="height: 250px;"><img src="{{ asset('storage/' . $product->image) }}" class="card-img-top px-2" alt="{{$product->name}} Picture"></div>
