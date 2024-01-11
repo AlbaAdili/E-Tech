@@ -24,7 +24,7 @@ class ProductController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'price' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,webp',
         ]);
     
         if ($validator->fails())
@@ -32,8 +32,12 @@ class ProductController extends Controller
             return redirect()->route('product.index')->withErrors($validator);
         }
     
-        $originalFileName = $request->file('image')->getClientOriginalName();
-        $imagePath = $request->file('image')->storeAs('public/images', $originalFileName);
+        $originalFileName = null;
+
+        if ($request->hasFile('image')) {
+            $originalFileName = $request->file('image')->getClientOriginalName();
+            $imagePath = $request->file('image')->storeAs('public/images', $originalFileName);
+        }
     
         Product::create([
             'name' => $request->get('name'),
