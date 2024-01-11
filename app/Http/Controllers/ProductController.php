@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -65,6 +66,18 @@ class ProductController extends Controller
 
     public function destroy(string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        $imageFilename = str_replace('images/', '', $product->image);
+    
+        $photoPath = 'public/images/' . $imageFilename;
+
+        if (Storage::disk('local')->exists($photoPath)) {
+            Storage::disk('local')->delete($photoPath);
+        }
+
+        $product->delete();
+    
+        return redirect()->route('product.index')->with('success','Deleted Product');
     }
 }
