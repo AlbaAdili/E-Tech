@@ -4,7 +4,9 @@
 
 @section("content")
     <div class="mt-5 d-flex justify-content-between" style="margin: 0 70px;">
-        <a href="{{ route('product.create') }}" class="btn button-primary">Add Product</a>
+        @if (Auth::user() && Auth::user()->role === 'admin')
+            <a href="{{ route('product.create') }}" class="btn button-primary">Add Product</a>
+        @endif
         <form method="POST" action="{{ route('product.search') }}" class="d-flex">
             @csrf
             <input type="search" name="search" class="form-control me-2" placeholder="Search">
@@ -15,16 +17,18 @@
         @if(isset($products) && $products->count() > 0)
             @foreach($products as $product)
                 <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <div class="d-flex">
-                            <a href="{{ route('product.edit', ['product' => $product->id]) }}" class="btn button-warning">Edit</a>
-                            <form method="POST" action="{{ route('product.destory', ['product' => $product->id]) }}" onsubmit="return confirmDelete()">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn button-danger ms-2">Delete</button>
-                            </form>
+                    @if (Auth::user() && Auth::user()->role === 'admin')
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <a href="{{ route('product.edit', ['product' => $product->id]) }}" class="btn button-warning">Edit</a>
+                                <form method="POST" action="{{ route('product.destory', ['product' => $product->id]) }}" onsubmit="return confirmDelete()">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn button-danger ms-2">Delete</button>
+                                </form>
+                            </div>
                         </div>
-                    </div>
+                    @endif
                     <div style="height: 250px;"><img src="{{ asset('storage/' . $product->image) }}" class="card-img-top px-2" alt="{{$product->name}} Picture"></div>
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">{{$product->name}}</h5>
