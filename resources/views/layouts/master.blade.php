@@ -45,8 +45,12 @@
                 <li><a href="#" class="nav-link px-2">Contact</a></li>
                 </ul>
                 <div class="col-lg-3 text-end">
-                <a href="#"><button type="button" class="btn btn-outline-primary me-2">Login</button></a>
-                <a href="#"><button type="button" class="btn btn-primary">Sign up</button></a>
+                @if (Auth::user())
+                  <a href="{{ route('signout.confirmation') }}"><button type="button" class="btn button-secondary">Logout</button></a>
+                @else
+                  <a href="{{ route('login') }}"><button type="button" class="btn button-primary me-2">Login</button></a>
+                  <a href="{{ route('register') }}"><button type="button" class="btn button-secondary">Register</button></a>
+                @endif
                 <svg class="bi bi-cart ms-1" width="30" height="30" fill="#0c6efd"><use xlink:href="#cart"/></svg>
                 <span class="quanity">0</span>
                 </div>
