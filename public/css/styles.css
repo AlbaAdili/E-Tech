@@ -96,3 +96,32 @@ footer .nav-link:hover {
 input[type="file"] {
     display: none;
 }
+.marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.marketing .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+}
+.featurette-divider {
+    margin: 5rem 0; 
+}
+@media (min-width: 40em) {
+    .featurette-heading {
+      font-size: 50px;
+    }
+}
+@media (min-width: 62em) {
+    .featurette-heading {
+      margin-top: 7rem;
+   }
+ }
+ .text-container {
+    text-align: center;
+}
+
+
+
+  
+  
