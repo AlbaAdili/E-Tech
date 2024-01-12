@@ -41,7 +41,7 @@
                 <li><a href="#" class="nav-link px-2">Home</a></li>
                 <li><a href="#" class="nav-link px-2">About</a></li>
                 <li><a href="{{ route('product.index') }}" class="nav-link px-2">Shop</a></li>
-                <li><a href="#" class="nav-link px-2">FAQs</a></li>
+                <li><a href="{{ route('faqs.index') }}" class="nav-link px-2">FAQs</a></li>
                 <li><a href="#" class="nav-link px-2">Contact</a></li>
                 </ul>
                 <div class="col-lg-3 text-end">
@@ -111,5 +111,6 @@
       </div>
     </footer>
     <script src="{{ asset('js/script.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
