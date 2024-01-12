@@ -14,11 +14,11 @@
             <h1 class="display-3 fw-bold text-white">Discover the Future of Tech</h1>
             <h3 class="mb-3 fw-normal text-white">Shop Technology Latest Arrivals Online</h3>
             <div class="d-flex gap-3 justify-content-center lead fw-normal">
-              <a class="icon-link text-white" href="./about.html">
+              <a class="icon-link text-white" href="{{ route('about') }}">
                 Learn more
                 <svg class="bi bi-cart text-white" width="16" height="16"><use xlink:href="#chevron-right"/></svg>
               </a>
-              <a class="icon-link text-white" href="./shop.html">
+              <a class="icon-link text-white" href="{{ route('product.index') }}">
                 Buy
                 <svg class="bi bi-cart text-white" width="16" height="16"><use xlink:href="#chevron-right"/></svg>
               </a>
@@ -32,7 +32,7 @@
         <div class="col-lg-6 mx-auto">
           <p class="lead mb-4">Whether you're an enthusiast for technology, a professional seeking best-in tools, or simply someone who loves the convenience of technology, we're here to meet your needs. Explore our carefully chosen selection of products, and experience the future of tech with us.</p>
           <div class="d-grid d-sm-flex justify-content-sm-center mb-5">
-            <a href="#"><button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Read more</button></a>
+            <a href="{{ route('about') }}"><button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Read more</button></a>
             <button type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="backToTop()">Back to top</button>
           </div>
         </div>
