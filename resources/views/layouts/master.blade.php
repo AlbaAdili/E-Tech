@@ -79,11 +79,11 @@
           <div class="col-6 col-md-2 mb-3">
             <h5>FAQs</h5>
             <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Payment</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Track order</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Return and Exchange</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Warranty</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">International shipping</a></li>
+            <li class="nav-item mb-2"><a href="{{ route('faqs.index') }}#payment" class="nav-link p-0 text-body-secondary">Payment</a></li>
+            <li class="nav-item mb-2"><a href="{{ route('faqs.index') }}#tracking" class="nav-link p-0 text-body-secondary">Track order</a></li>
+            <li class="nav-item mb-2"><a href="{{ route('faqs.index') }}#return-exchange" class="nav-link p-0 text-body-secondary">Return and Exchange</a></li>
+            <li class="nav-item mb-2"><a href="{{ route('faqs.index') }}#warranty" class="nav-link p-0 text-body-secondary">Warranty</a></li>
+            <li class="nav-item mb-2"><a href="{{ route('faqs.index') }}#international-shipping" class="nav-link p-0 text-body-secondary">International shipping</a></li>
           </div>
           <div class="col-6 col-md-2 mb-3">
             <h5>Customer Support</h5>
