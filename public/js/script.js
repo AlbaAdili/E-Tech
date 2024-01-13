@@ -32,3 +32,7 @@ function updateImagePreview() {
 function confirmDelete() {
     return confirm('Are you sure you want to delete this product?');
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    autosize(document.querySelectorAll('.autosize'));
+});

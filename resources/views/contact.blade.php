@@ -3,35 +3,31 @@
 @section("title","Contact Page")
 
 @section("content")
-<section>
-        <div class="modal modal-sheet position-static d-block" tabindex="-1" role="dialog" id="modalSignin">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content py-4 border-0">
-                <div class="p-1 pb-3 border-bottom-0">
-                  <h1 class="fw-normal mb-0 fs-2">Let’s Discuss Your Needs</h1>
-                  <p class="contact-description">Tell us all about your problem right here, or send us an email at <span>hello@company.com</span></p>
-                </div>
-                <div class="modal-body p-1 pt-0">
-                  <form method="POST" action="{{ route('contact.store') }}">
-                  @csrf
-                    <div class="form-floating mb-4">
-                      <input type="text" name="name" class="form-control rounded-3" id="floatingName" placeholder="Name & Company">
-                      <label for="floatingInput">Name</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                      <input type="email" name="email" class="form-control rounded-3" id="floatingEmail" placeholder="name@example.com">
-                      <label for="floatingInput">Email</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                      <textarea type="text" name="description" class="form-control rounded-3" id="floatingProjectDescription" placeholder="Project Description" style="height: 150px;"></textarea>
-                      <label for="floatingDescription">Problem Description</label>
-                    </div>                  
-                    <button class="w-50 btn btn-lg mb-4 rounded-3 btn-primary" type="submit">Send</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-        </div>
-      </section>
+<div class="d-flex flex-column align-items-center mt-5">
+    <h1 class="display-5 mt-2">Let’s Discuss Your Needs</h1>
+    <p style="border-left: 3px solid #0c6efd; padding-left: 0.5rem; width: 500px;" class="mt-2">
+      Tell us all about your problem right here, or send us an email at 
+      <span style="color: #0c6efd;">hello@company.com</span>
+    </p>
+  </div>
+  <form method="POST" action="{{ route('contact.store') }}" class="form" style="padding-top: 0;">
+    @csrf 
+      <div class="form-content">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name" required>
+      </div>
+      <div class="form-content">
+        <label for="email" class="form-label">Email</label>
+        <input type="text" name="email" id="email" class="form-control" placeholder="Enter Email" required>
+      </div>
+      <div class="form-content">
+        <label for="description" class="form-label">Description</label>
+        <textarea name="description" id="description" class="form-control autosize" placeholder="Enter Description" required></textarea>
+      </div>
+      <div class="form-content">
+        <button type="submit" class="btn button-secondary mt-2">Send</button>
+      </div>
+  </form>
+
 
 @endsection
