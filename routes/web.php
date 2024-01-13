@@ -14,21 +14,21 @@ Route::resource('faqs', FaqsController::class);
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('product', [ProductController::class, 'index'])->name('product.index');
-Route::post('product', [ProductController::class, 'store'])->name('product.store');
-Route::put('product/{product}', [ProductController::class, 'update'])->name('product.update');
-Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('product.destory');
+Route::post('product', [ProductController::class, 'store'])->name('product.store')->middleware('admin');
+Route::put('product/{product}', [ProductController::class, 'update'])->name('product.update')->middleware('admin');
+Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('product.destory')->middleware('admin');
 Route::post('product/search', [ProductController::class, 'search'])->name('product.search');
 Route::get('faqs', [FaqsController::class, 'index'])->name('faqs.index');
 Route::get('about', [AboutController::class, 'index'])->name('about');
-Route::get('/shopping-cart', [ProductController::class, 'cart'])->name('product.cart');
-Route::get('/book/{id}', [ProductController::class, 'addToCart'])->name('product.addToCart');
-Route::patch('/update-shopping-cart', [ProductController::class, 'updateCart'])->name('product.updateCart');
-Route::delete('/delete-cart-product', [ProductController::class, 'deleteFromCart'])->name('product.deleteFromCart');
+Route::get('/shopping-cart', [ProductController::class, 'cart'])->name('product.cart')->middleware('auth');
+Route::get('/book/{id}', [ProductController::class, 'addToCart'])->name('product.addToCart')->middleware('auth');
+Route::patch('/update-shopping-cart', [ProductController::class, 'updateCart'])->name('product.updateCart')->middleware('auth');
+Route::delete('/delete-cart-product', [ProductController::class, 'deleteFromCart'])->name('product.deleteFromCart')->middleware('auth');
 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
 Route::get('register', [CustomAuthController::class, 'registration'])->name('register');
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
-Route::get('signout', [CustomAuthController::class, 'signOutConfirmation'])->name('signout.confirmation');
-Route::post('custom-signout', [CustomAuthController::class, 'customSignOut'])->name('signout.custom');
+Route::get('signout', [CustomAuthController::class, 'signOutConfirmation'])->name('signout.confirmation')->middleware('auth');
+Route::post('custom-signout', [CustomAuthController::class, 'customSignOut'])->name('signout.custom')->middleware('auth');
 
