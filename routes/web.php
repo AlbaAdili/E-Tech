@@ -21,6 +21,11 @@ Route::post('product/search', [ProductController::class, 'search'])->name('produ
 Route::get('faqs', [FaqsController::class, 'index'])->name('faqs.index');
 Route::get('about', [AboutController::class, 'index'])->name('about');
 
+Route::get('/shopping-cart', [ProductController::class, 'cart'])->name('product.cart');
+Route::get('/book/{id}', [ProductController::class, 'addToCart'])->name('product.addToCart');
+Route::patch('/update-shopping-cart', [ProductController::class, 'updateCart'])->name('product.updateCart');
+Route::delete('/delete-cart-product', [ProductController::class, 'deleteFromCart'])->name('product.deleteFromCart');
+
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
 Route::get('register', [CustomAuthController::class, 'registration'])->name('register');

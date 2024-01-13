@@ -51,8 +51,10 @@
                   <a href="{{ route('login') }}"><button type="button" class="btn button-primary me-2">Login</button></a>
                   <a href="{{ route('register') }}"><button type="button" class="btn button-secondary">Register</button></a>
                 @endif
-                <svg class="bi bi-cart ms-1" width="30" height="30" fill="#0c6efd"><use xlink:href="#cart"/></svg>
-                <span class="quanity">0</span>
+                <a href="{{ route('product.cart') }}">
+                  <svg class="bi bi-cart ms-1" width="30" height="30" fill="#0c6efd"><use xlink:href="#cart"/></svg>
+                  <span class="quantity">{{ count((array) session('cart')) }}</span>
+                </a>
                 </div>
             </div>
         </div>
@@ -116,5 +118,7 @@
     </footer>
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    @yield('scripts')
 </body>
 </html>
