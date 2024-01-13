@@ -16,6 +16,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('product', [ProductController::class, 'index'])->name('product.index');
 Route::post('product', [ProductController::class, 'store'])->name('product.store')->middleware('admin');
 Route::put('product/{product}', [ProductController::class, 'update'])->name('product.update')->middleware('admin');
+Route::get('product/{product}/edit', [ProductController::class, 'edit'])->name('product.edit')->middleware('admin');
 Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('product.destory')->middleware('admin');
 Route::post('product/search', [ProductController::class, 'search'])->name('product.search');
 Route::get('faqs', [FaqsController::class, 'index'])->name('faqs.index');
