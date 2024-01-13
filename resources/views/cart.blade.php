@@ -7,59 +7,65 @@
         <h1 class="display-5 mt-4">Shopping Cart</h1>
     </div>
     <div style="padding: 70px">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Product</th>
-                    <th></th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th></th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                @php $total = 0 @endphp
-                @if(session('cart'))
-                    @foreach(session('cart') as $id => $details)
-                        <tr rowId="{{ $id }}">
-                            <td>
-                                @if(isset($details['image']))
-                                    <img src="{{ asset('storage/' . $details['image']) }}" style="height: 150px;"/>
-                                @else
-                                    <p>No Image</p>
-                                @endif
-                            </td>
-                            <td class="align-middle"><p class="my-auto">{{ $details['name'] }}</p></td>
-                            <td class="align-middle">${{ $details['price'] }}</td>
-                            <td class="align-middle">
-                                <div class="input-group">
-                                    <button class="btn btn-outline-secondary quantity-btn" style="padding: 10px 15px;" data-id="{{ $id }}" data-action="decrement">-</button>
-                                    <input type="text" class="form-control quantity-input text-center" value="{{ $details['quantity'] }}" style="width: 10px; border-color: #6c757d;" readonly>
-                                    <button class="btn btn-outline-secondary quantity-btn" style="padding: 10px 15px;" data-id="{{ $id }}" data-action="increment">+</button>
-                                </div>
-                            </td>
-                            <td class="align-middle">
-                                <button class="btn btn-outline-danger delete-product" style="padding: 10px 15px;" data-id="{{ $id }}">x</button>
-                            </td>
-                            <td class="align-middle">${{ $details['price'] * $details['quantity'] }}</td>
-                        </tr>
-                        @php
-                            $total += $details['price'] * $details['quantity'];
-                        @endphp
-                    @endforeach
-                @endif
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="6" class="py-5 text-end" style="font-size: 20px;">Total: ${{ $total }}</td>
-                </tr>
-            </tfoot>
-        </table>
+        @if(session('cart') && count(session('cart')) > 0)
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th></th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th></th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @php $total = 0 @endphp
+                    @if(session('cart'))
+                        @foreach(session('cart') as $id => $details)
+                            <tr rowId="{{ $id }}">
+                                <td>
+                                    @if(isset($details['image']))
+                                        <img src="{{ asset('storage/' . $details['image']) }}" style="height: 150px;"/>
+                                    @else
+                                        <p>No Image</p>
+                                    @endif
+                                </td>
+                                <td class="align-middle"><p class="my-auto">{{ $details['name'] }}</p></td>
+                                <td class="align-middle">${{ $details['price'] }}</td>
+                                <td class="align-middle">
+                                    <div class="input-group">
+                                        <button class="btn btn-outline-secondary quantity-btn" style="padding: 10px 15px;" data-id="{{ $id }}" data-action="decrement">-</button>
+                                        <input type="text" class="form-control quantity-input text-center" value="{{ $details['quantity'] }}" style="width: 10px; border-color: #6c757d;" readonly>
+                                        <button class="btn btn-outline-secondary quantity-btn" style="padding: 10px 15px;" data-id="{{ $id }}" data-action="increment">+</button>
+                                    </div>
+                                </td>
+                                <td class="align-middle">
+                                    <button class="btn btn-outline-danger delete-product" style="padding: 10px 15px;" data-id="{{ $id }}">x</button>
+                                </td>
+                                <td class="align-middle">${{ $details['price'] * $details['quantity'] }}</td>
+                            </tr>
+                            @php
+                                $total += $details['price'] * $details['quantity'];
+                            @endphp
+                        @endforeach
+                    @endif
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6" class="py-5 text-end" style="font-size: 20px;">Total: ${{ $total }}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        @else
+            <p class="text-center mt-4">No products added in the cart.</p>
+        @endif
     </div>
     <div class="d-flex justify-content-end" style="padding: 0 70px; padding-bottom: 70px;">
         <a href="{{ route('product.index') }}" class="btn button-danger me-2">Continue Shopping</a>
-        <a href="#" class="btn button-secondary">Continue To Checkout</a>
+        @if(session('cart') && count(session('cart')) > 0)
+            <a href="#" class="btn button-secondary">Continue To Checkout</a>
+        @endif
     </div>
 @endsection
 
