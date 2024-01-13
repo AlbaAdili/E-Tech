@@ -33,7 +33,7 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">{{$product->name}}</h5>
                         <p class="card-text">${{$product->price}}</p>
-                        <a href="{{ route('product.addToCart', $product->id) }}" class="btn button-secondary mt-auto" style="width: 103px;">Add to cart</a>
+                        <a href="{{ auth()->check() ? route('product.addToCart', $product->id) : route('login') }}" class="btn button-secondary mt-auto" style="width: 103px;">Add to cart</a>
                     </div>
                 </div>
             @endforeach

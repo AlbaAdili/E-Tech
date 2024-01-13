@@ -20,7 +20,6 @@ Route::delete('products/{product}', [ProductController::class, 'destroy'])->name
 Route::post('product/search', [ProductController::class, 'search'])->name('product.search');
 Route::get('faqs', [FaqsController::class, 'index'])->name('faqs.index');
 Route::get('about', [AboutController::class, 'index'])->name('about');
-
 Route::get('/shopping-cart', [ProductController::class, 'cart'])->name('product.cart');
 Route::get('/book/{id}', [ProductController::class, 'addToCart'])->name('product.addToCart');
 Route::patch('/update-shopping-cart', [ProductController::class, 'updateCart'])->name('product.updateCart');
