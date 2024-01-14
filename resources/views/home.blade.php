@@ -61,9 +61,9 @@
     </section>
     <section>
       <div class="px-4 py-5 mt-5 text-center border-top">
-        <h1 class="display-4 fw-bold text-body-emphasis">Abous Us</h1>
+        <h1 class="display-5 text-body-emphasis">About Us</h1>
         <div class="col-lg-6 mx-auto">
-          <p class="lead mb-4">Whether you're an enthusiast for technology, a professional seeking best-in tools, or simply someone who loves the convenience of technology, we're here to meet your needs. Explore our carefully chosen selection of products, and experience the future of tech with us.</p>
+          <p class="lead mb-4 pt-2">Whether you're an enthusiast for technology, a professional seeking best-in tools, or simply someone who loves the convenience of technology, we're here to meet your needs. Explore our carefully chosen selection of products, and experience the future of tech with us.</p>
           <div class="d-grid d-sm-flex justify-content-sm-center mb-5">
             <a href="{{ route('about') }}"><button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Read more</button></a>
             <button type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="backToTop()">Back to top</button>
