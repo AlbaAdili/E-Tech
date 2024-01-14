@@ -5,12 +5,12 @@
 @section("content")
 <section>
         <div class="pt-5 text-center">
-          <h1 class="display-5 fw-bold text-body-emphasis">About Us</h1>
+          <h1 class="display-5 text-body-emphasis">About Us</h1>
           <div class="col-lg-7 mx-auto mt-3">
             <p class="lead">We privileged to be an authorized reseller for industry-leading tech giants, including Apple, Samsung, Sony, and a host of other renowned companies. Our commitment to excellence extends beyond the exceptional range of products we offer. Our foremost objective is your satisfaction, and these cherished partnerships empower us to consistently raise the bar, ensuring we continually outperform your expectations.</p>
             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center pt-3">
             <a href="{{ route('product.index') }}"><button type="button" class="btn btn-primary btn-lg px-4 gap-3">Shop now</button></a>
-            <a href="#"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Contact us</button></a>
+            <a href="{{ route('contact.create') }}"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Contact us</button></a>
             </div>
         </div>
       </section>

@@ -5,16 +5,14 @@
 @section("content")
     <section class="bg-white text-dark">
         <div class="container text-center">
-            <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">FAQs</h1>
-                    <p class="lead text-muted">Find answers to the most frequently asked questions.</p>
-                </div>
+            <div class="text-center mt-5">
+                <h1 class="display-5 mt-2">FAQs</h1>
+                <p class="lead text-muted">Find answers to the most frequently asked questions.</p>
             </div>
         </div>
     </section>
     <section>
-        <div class="accordion pb-lg-5" id="accordionExample">
+        <div class="accordion my-lg-5" id="accordionExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button collapsed" id="payment" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">

@@ -3,6 +3,9 @@
 @section("title","Shop Page")
 
 @section("content")
+    <div class="text-center mt-5">
+        <h1 class="display-5 mt-2">Shop Products</h1>
+    </div>
     <div class="mt-5 d-flex justify-content-between" style="margin: 0 70px;">
         @if (Auth::user() && Auth::user()->role === 'admin')
             <a href="{{ route('product.create') }}" class="btn button-primary">Add Product</a>
