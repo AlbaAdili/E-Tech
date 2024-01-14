@@ -32,5 +32,8 @@
         <div class="form-content">
             <button type="submit" class="btn button-secondary mt-2">Sign up</button>
         </div>
+        <div>
+            <p>Already have an account? <a href="{{ route('login') }}" class="login-register">Login</a></p>
+        </div>
     </form>
 @endsection

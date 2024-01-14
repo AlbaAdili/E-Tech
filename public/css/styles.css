@@ -116,10 +116,18 @@ input[type="file"] {
     .featurette-heading {
       margin-top: 7rem;
    }
- }
- .text-container {
+}
+.text-container {
     text-align: center;
 }
+.login-register {
+    text-decoration: none;
+    color: #0c6efd;
+}
+.login-register:hover {
+    text-decoration: underline;
+}
+
 
 
 

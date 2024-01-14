@@ -23,12 +23,15 @@
             @endif
         </div>
         <div class="form-content">
-        <label>
-            <input type="checkbox" name="remember"> Remember Me
-        </label>
+            <label>
+                <input type="checkbox" name="remember"> Remember Me
+            </label>
         </div>
         <div class="form-content">
             <button type="submit" class="btn button-secondary mt-2">Login</button>
+        </div>
+        <div>
+            <p>Don't have an account? <a href="{{ route('register') }}" class="login-register">Register</a></p>
         </div>
     </form>
 @endsection
