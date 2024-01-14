@@ -106,6 +106,12 @@ class ProductController extends Controller
         return view("shop",compact("products"));
     }
 
+    public function featuredProducts()
+    {
+        $products = Product::take(8)->get();
+        return $products;
+    }    
+
     public function cart()
     {
         return view('cart');

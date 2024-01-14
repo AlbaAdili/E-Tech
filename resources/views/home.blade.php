@@ -27,6 +27,39 @@
         </div>
     </section> 
     <section>
+      <div class="card-container py-5">
+        @php
+          $featuredProducts = (new \App\Http\Controllers\ProductController)->featuredProducts();
+        @endphp
+        @if(isset($featuredProducts) && $featuredProducts->count() > 0)
+            @foreach($featuredProducts as $product)
+                <div class="card" style="width: 18rem;">
+                    @if (Auth::user() && Auth::user()->role === 'admin')
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <a href="{{ route('product.edit', ['product' => $product->id]) }}" class="btn button-warning">Edit</a>
+                                <form method="POST" action="{{ route('product.destory', ['product' => $product->id]) }}" onsubmit="return confirmDelete()">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn button-danger ms-2">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    @endif
+                    <div style="height: 250px;"><img src="{{ asset('storage/' . $product->image) }}" class="card-img-top px-2" alt="{{$product->name}} Picture"></div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{$product->name}}</h5>
+                        <p class="card-text">${{$product->price}}</p>
+                        <a href="{{ auth()->check() ? route('product.addToCart', $product->id) : route('login') }}" class="btn button-secondary mt-auto" style="width: 103px;">Add to cart</a>
+                    </div>
+                </div>
+            @endforeach
+        @else
+            <p class="display-6">No products found.</p>
+        @endif
+      </div>
+    </section>
+    <section>
       <div class="px-4 py-5 mt-5 text-center border-top">
         <h1 class="display-4 fw-bold text-body-emphasis">Abous Us</h1>
         <div class="col-lg-6 mx-auto">
