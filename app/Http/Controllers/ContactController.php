@@ -11,7 +11,7 @@ class ContactController extends Controller
     public function index()
     {
         $messages = Contact::all();
-        return view('admin-contact', compact('messages'));
+        return view('customer-contacts', compact('messages'));
     }
     
     public function create()
@@ -38,7 +38,7 @@ class ContactController extends Controller
             'description' => $request->get('description'),
         ]);
     
-        return redirect()->route('contact.create')->with('success', 'MessageSent');
+        return redirect()->route('contact.create')->with('success', 'Message Sent');
     }
 
     public function destroy($id)
@@ -58,6 +58,6 @@ class ContactController extends Controller
                 ->orWhere('email', 'LIKE', "%$search%");
         })->get();
 
-        return view("admin-contact", compact("messages"));
+        return view("customer-contacts", compact("messages"));
     }
 }
