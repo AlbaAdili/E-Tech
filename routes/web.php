@@ -8,6 +8,7 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\NewsletterController;
 
 
 Route::resource('home', HomeController::class);
@@ -37,6 +38,8 @@ Route::get('/checkout', [ProductController::class, 'checkout'])->name('product.c
 Route::post('/checkout', [ProductController::class, 'processCheckout'])->name('product.processCheckout')->middleware('auth');
 Route::get('/order-confirmation', [ProductController::class, 'orderConfirmation'])->name('product.orderConfirmation')->middleware('auth');
 Route::get('/orders', [OrderController::class, 'index'])->name('order.index')->middleware('auth');
+Route::post('/subscribe/newsletter', [NewsletterController::class, 'subscribe'])->name('subscribe.newsletter');
+
 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
