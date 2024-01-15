@@ -30,6 +30,7 @@ Route::delete('/delete-cart-product', [ProductController::class, 'deleteFromCart
 Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('contacts', [ContactController::class, 'index'])->name('contact.index');
 Route::delete('contacts/{contact}', [ContactController::class, 'destroy'])->name('contact.destroy')->middleware('admin');
+Route::post('contacts/search', [ContactController::class, 'search'])->name('contact.search');
 
 Route::get('/checkout', [ProductController::class, 'checkout'])->name('product.checkout')->middleware('auth');
 Route::post('/checkout', [ProductController::class, 'processCheckout'])->name('product.processCheckout')->middleware('auth');

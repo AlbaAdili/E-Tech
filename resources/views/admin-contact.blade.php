@@ -3,7 +3,22 @@
 @section('content')
     <div class="container">
         <h1 class="title">Messages</h1>
-
+        
+        <div class="mt-5 d-flex justify-content-between" style="margin: 0 70px;">
+            <form action="{{ route('contact.search') }}" method="POST" class="d-flex">
+                @csrf
+                <div class="row">
+                    <div class="col-12">
+                        <div class="input-group">
+                            <input type="text" name="search" class="form-control me-2" placeholder="Search by name or email">
+                            <button type="submit" class="btn btn-primary" style="background-color: white; color: blue;">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>  
+        
+    <div class="mt-3">
         <div class="row">
             @forelse ($messages as $message)
                 <div class="col-12 mb-4"> 
@@ -31,4 +46,5 @@
             @endforelse
         </div>
     </div>
+</div>
 @endsection
