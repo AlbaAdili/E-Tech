@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
+    public function index()
+    {
+        $messages = Contact::all();
+        return view('admin-contact', compact('messages'));
+    }
+    
     public function create()
     {
         return view("contact");
@@ -33,5 +39,25 @@ class ContactController extends Controller
         ]);
     
         return redirect()->route('contact.create')->with('success', 'MessageSent');
+    }
+
+    public function destroy($id)
+    {
+        $contact = Contact::findOrFail($id);
+        $contact->delete();
+    
+        return redirect()->route('contact.index')->with('success', 'Deleted Message');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+
+        $messages = Contact::where(function ($query) use ($search) {
+            $query->where('name', 'LIKE', "%$search%")
+                ->orWhere('email', 'LIKE', "%$search%");
+        })->get();
+
+        return view("admin-contact", compact("messages"));
     }
 }
