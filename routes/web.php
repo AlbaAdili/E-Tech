@@ -29,6 +29,10 @@ Route::patch('/update-shopping-cart', [ProductController::class, 'updateCart'])-
 Route::delete('/delete-cart-product', [ProductController::class, 'deleteFromCart'])->name('product.deleteFromCart')->middleware('auth');
 Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
 
+Route::get('/checkout', [ProductController::class, 'checkout'])->name('product.checkout')->middleware('auth');
+Route::post('/checkout', [ProductController::class, 'processCheckout'])->name('product.processCheckout')->middleware('auth');
+Route::get('/order-confirmation', [ProductController::class, 'orderConfirmation'])->name('product.orderConfirmation')->middleware('auth');
+
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
 Route::get('register', [CustomAuthController::class, 'registration'])->name('register');
