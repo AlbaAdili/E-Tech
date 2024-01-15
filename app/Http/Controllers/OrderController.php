@@ -10,15 +10,12 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $userOrders = Order::where('user_id', auth()->user()->id)->with('orderItems')->get();
+        if (auth()->user()->role === 'admin') {
+            $orders = Order::with('orderItems')->get();
+        } else {
+            $orders = Order::where('user_id', auth()->user()->id)->with('orderItems')->get();
+        }
 
-        return view('orders', compact('userOrders'));
-    }
-
-    public function customerOrders()
-    {
-        $orders = Order::with('orderItems')->get();
-
-        return view('customer-orders', compact('orders'));
+        return view('orders', compact('orders'));
     }
 }

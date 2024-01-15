@@ -7,10 +7,10 @@
         <h1 class="display-5">Orders</h1>
     </div>
     <div class="container">
-        @if ($userOrders->isEmpty())
+        @if ($orders->isEmpty())
             <p class="text-center pt-4">You haven't placed any orders yet.</p>
         @else
-            @foreach ($userOrders as $order)
+            @foreach ($orders as $order)
                 <div class="card mb-5 pb-2">
                     <div class="card-header d-flex align-items-center">
                         <p class="my-2">Order Number {{ $order->id }}</p>
