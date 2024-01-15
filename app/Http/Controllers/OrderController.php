@@ -14,4 +14,11 @@ class OrderController extends Controller
 
         return view('orders', compact('userOrders'));
     }
+
+    public function customerOrders()
+    {
+        $orders = Order::with('orderItems')->get();
+
+        return view('customer-orders', compact('orders'));
+    }
 }

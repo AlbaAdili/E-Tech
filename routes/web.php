@@ -37,6 +37,7 @@ Route::get('/checkout', [ProductController::class, 'checkout'])->name('product.c
 Route::post('/checkout', [ProductController::class, 'processCheckout'])->name('product.processCheckout')->middleware('auth');
 Route::get('/order-confirmation', [ProductController::class, 'orderConfirmation'])->name('product.orderConfirmation')->middleware('auth');
 Route::get('/orders', [OrderController::class, 'index'])->name('order.index')->middleware('auth');
+Route::get('customer-orders', [OrderController::class, 'customerOrders'])->name('order.customerOrders')->middleware('admin');
 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
