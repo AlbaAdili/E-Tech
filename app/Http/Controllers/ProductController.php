@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Order;
+use App\Models\OrderItem;
 
 class ProductController extends Controller
 {
@@ -19,7 +21,7 @@ class ProductController extends Controller
     {
         return view("create-product");
     }
-
+    
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -28,19 +30,18 @@ class ProductController extends Controller
             'image' => 'image|mimes:jpeg,png,jpg,gif,webp',
         ]);
     
-        if ($validator->fails())
-        {
+        if ($validator->fails()) {
             return redirect()->route('product.index')->withErrors($validator);
         }
     
         $originalFileName = null;
-
+    
         if ($request->hasFile('image')) {
             $originalFileName = $request->file('image')->getClientOriginalName();
             $imagePath = $request->file('image')->storeAs('public/images', $originalFileName);
         }
     
-        Product::create([
+        $product = Product::create([
             'name' => $request->get('name'),
             'price' => $request->get('price'),
             'image' => 'images/' . $originalFileName,
@@ -48,11 +49,6 @@ class ProductController extends Controller
     
         return redirect()->route('product.index')->with('success', 'Inserted Product');
     }      
-
-    public function show(string $id)
-    {
-        //
-    }
 
     public function edit($id)
     {
@@ -114,7 +110,16 @@ class ProductController extends Controller
 
     public function cart()
     {
-        return view('cart');
+        $cartItems = [];
+    
+        if (auth()->check()) {
+            $order = Order::where('user_id', auth()->user()->id)->latest()->first();
+            if ($order) {
+                $cartItems = OrderItem::where('order_id', $order->id)->get();
+            }
+        }
+    
+        return view('cart', compact('cartItems'));
     }
 
     public function addToCart($id)
@@ -155,5 +160,53 @@ class ProductController extends Controller
             }
             session()->flash('success', 'Product successfully deleted.');
         }
+    }
+
+    public function checkout()
+    {
+        $cartData = session('cart');
+
+        $totalCartPrice = 0;
+        foreach ($cartData as $item) {
+            $totalCartPrice += $item['price'] * $item['quantity'];
+        }
+        
+        return view('checkout', ['cartItems' => $cartData, 'totalCartPrice' => $totalCartPrice]);
+    }    
+
+    public function processCheckout(Request $request)
+    {
+        $order = Order::create([
+            'user_id' => auth()->user()->id,
+            'first_name' => $request->input('firstName'),
+            'last_name' => $request->input('lastName'),
+            'email' => $request->input('email'),
+            'address' => $request->input('address'),
+            'address2' => $request->input('address2'),
+            'country' => $request->input('country'),
+            'city' => $request->input('city'),
+            'zip' => $request->input('zip'),
+        ]);
+
+        foreach ($request->session()->get('cart', []) as $productId => $item) {
+            OrderItem::create([
+                'order_id' => $order->id,
+                'product_id' => $productId,
+                'product_name' => $item['name'],
+                'product_price' => $item['price'],
+                'product_image' => $item['image'],
+                'quantity' => $item['quantity'],
+                'total_price' => $item['price'] * $item['quantity'],
+            ]);
+        }
+
+        $request->session()->forget('cart');
+
+        return redirect()->route('product.orderConfirmation')->with('success', 'Order placed successfully!');
+    }      
+
+    public function orderConfirmation()
+    {
+        return view('order-confirmation');
     }
 }

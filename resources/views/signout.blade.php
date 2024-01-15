@@ -7,7 +7,7 @@
         @csrf
         <div class="my-5" style="margin-left: 70px;">
             <h1 class="display-6">Are you sure you want to logout?</h1>
-            <button type="submit" class="btn button-primary mt-2">Logout</button>
+            <button type="submit" class="btn button-primary mt-3">Logout</button>
         </div>
     </form>
 @endsection

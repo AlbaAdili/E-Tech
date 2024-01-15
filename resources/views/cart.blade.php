@@ -64,7 +64,7 @@
     <div class="d-flex justify-content-end" style="padding: 0 70px; padding-bottom: 70px;">
         <a href="{{ route('product.index') }}" class="btn button-danger me-2">Continue Shopping</a>
         @if(session('cart') && count(session('cart')) > 0)
-            <a href="#" class="btn button-secondary">Continue To Checkout</a>
+            <a href="{{ route('product.checkout') }}" class="btn button-secondary">Continue To Checkout</a>
         @endif
     </div>
 @endsection
