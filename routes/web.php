@@ -7,12 +7,14 @@ use App\Http\Controllers\FaqsController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\OrderController;
 
 
 Route::resource('home', HomeController::class);
 Route::resource('product', ProductController::class);
 Route::resource('faqs', FaqsController::class);
 Route::resource('contact', ContactController::class);
+Route::resource('order', OrderController::class);
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('product', [ProductController::class, 'index'])->name('product.index');
@@ -31,10 +33,10 @@ Route::post('contact', [ContactController::class, 'store'])->name('contact.store
 Route::get('contacts', [ContactController::class, 'index'])->name('contact.index');
 Route::delete('contacts/{contact}', [ContactController::class, 'destroy'])->name('contact.destroy')->middleware('admin');
 Route::post('contacts/search', [ContactController::class, 'search'])->name('contact.search');
-
 Route::get('/checkout', [ProductController::class, 'checkout'])->name('product.checkout')->middleware('auth');
 Route::post('/checkout', [ProductController::class, 'processCheckout'])->name('product.processCheckout')->middleware('auth');
 Route::get('/order-confirmation', [ProductController::class, 'orderConfirmation'])->name('product.orderConfirmation')->middleware('auth');
+Route::get('/orders', [OrderController::class, 'index'])->name('order.index')->middleware('auth');
 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
