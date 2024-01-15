@@ -29,6 +29,7 @@ Route::patch('/update-shopping-cart', [ProductController::class, 'updateCart'])-
 Route::delete('/delete-cart-product', [ProductController::class, 'deleteFromCart'])->name('product.deleteFromCart')->middleware('auth');
 Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('contacts', [ContactController::class, 'index'])->name('contact.index');
+Route::delete('contacts/{contact}', [ContactController::class, 'destroy'])->name('contact.destroy')->middleware('admin');
 
 Route::get('/checkout', [ProductController::class, 'checkout'])->name('product.checkout')->middleware('auth');
 Route::post('/checkout', [ProductController::class, 'processCheckout'])->name('product.processCheckout')->middleware('auth');
