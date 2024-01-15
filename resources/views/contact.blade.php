@@ -28,6 +28,4 @@
         <button type="submit" class="btn button-secondary mt-2">Send</button>
       </div>
   </form>
-
-
 @endsection

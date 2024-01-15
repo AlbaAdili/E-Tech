@@ -7,12 +7,14 @@ use App\Http\Controllers\FaqsController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\OrderController;
 
 
 Route::resource('home', HomeController::class);
 Route::resource('product', ProductController::class);
 Route::resource('faqs', FaqsController::class);
 Route::resource('contact', ContactController::class);
+Route::resource('order', OrderController::class);
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('product', [ProductController::class, 'index'])->name('product.index');
@@ -28,10 +30,10 @@ Route::get('/book/{id}', [ProductController::class, 'addToCart'])->name('product
 Route::patch('/update-shopping-cart', [ProductController::class, 'updateCart'])->name('product.updateCart')->middleware('auth');
 Route::delete('/delete-cart-product', [ProductController::class, 'deleteFromCart'])->name('product.deleteFromCart')->middleware('auth');
 Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
-
 Route::get('/checkout', [ProductController::class, 'checkout'])->name('product.checkout')->middleware('auth');
 Route::post('/checkout', [ProductController::class, 'processCheckout'])->name('product.processCheckout')->middleware('auth');
 Route::get('/order-confirmation', [ProductController::class, 'orderConfirmation'])->name('product.orderConfirmation')->middleware('auth');
+Route::get('/orders', [OrderController::class, 'index'])->name('order.index')->middleware('auth');
 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');

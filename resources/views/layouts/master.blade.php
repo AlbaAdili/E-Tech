@@ -43,6 +43,9 @@
                 <li><a href="{{ route('product.index') }}" class="nav-link px-2">Shop</a></li>
                 <li><a href="{{ route('faqs.index') }}" class="nav-link px-2">FAQs</a></li>
                 <li><a href="{{ route('contact.create') }}" class="nav-link px-2">Contact</a></li>
+                @if (Auth::user())
+                  <li><a href="{{ route('order.index') }}" class="nav-link px-2">Orders</a></li>
+                @endif
                 </ul>
                 <div class="col-lg-3 text-end">
                 @if (Auth::user())
