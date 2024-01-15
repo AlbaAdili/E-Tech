@@ -28,6 +28,7 @@ Route::get('/book/{id}', [ProductController::class, 'addToCart'])->name('product
 Route::patch('/update-shopping-cart', [ProductController::class, 'updateCart'])->name('product.updateCart')->middleware('auth');
 Route::delete('/delete-cart-product', [ProductController::class, 'deleteFromCart'])->name('product.deleteFromCart')->middleware('auth');
 Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('contacts', [ContactController::class, 'index'])->name('contact.index');
 
 Route::get('/checkout', [ProductController::class, 'checkout'])->name('product.checkout')->middleware('auth');
 Route::post('/checkout', [ProductController::class, 'processCheckout'])->name('product.processCheckout')->middleware('auth');
@@ -39,4 +40,3 @@ Route::get('register', [CustomAuthController::class, 'registration'])->name('reg
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
 Route::get('signout', [CustomAuthController::class, 'signOutConfirmation'])->name('signout.confirmation')->middleware('auth');
 Route::post('custom-signout', [CustomAuthController::class, 'customSignOut'])->name('signout.custom')->middleware('auth');
-

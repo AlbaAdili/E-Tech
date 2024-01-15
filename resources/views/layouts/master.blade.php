@@ -42,7 +42,7 @@
                 <li><a href="{{ route('about') }}" class="nav-link px-2">About</a></li>
                 <li><a href="{{ route('product.index') }}" class="nav-link px-2">Shop</a></li>
                 <li><a href="{{ route('faqs.index') }}" class="nav-link px-2">FAQs</a></li>
-                <li><a href="{{ route('contact.create') }}" class="nav-link px-2">Contact</a></li>
+                <li><a href="{{ Auth::user() && Auth::user()->role === 'admin' ? route('contact.index') : route('contact.create') }}" class="nav-link px-2">Contact</a></li>
                 </ul>
                 <div class="col-lg-3 text-end">
                 @if (Auth::user())

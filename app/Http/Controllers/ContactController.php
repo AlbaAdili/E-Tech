@@ -34,4 +34,9 @@ class ContactController extends Controller
     
         return redirect()->route('contact.create')->with('success', 'MessageSent');
     }
+    public function index()
+    {
+        $messages = Contact::all();
+        return view('admin-contact', compact('messages'));
+    }
 }
