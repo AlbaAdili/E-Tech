@@ -12,20 +12,29 @@
   </div>
   <form method="POST" action="{{ route('contact.store') }}" class="form" style="padding-top: 0;">
     @csrf 
-      <div class="form-content">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name" required>
-      </div>
-      <div class="form-content">
-        <label for="email" class="form-label">Email</label>
-        <input type="text" name="email" id="email" class="form-control" placeholder="Enter Email" required>
-      </div>
-      <div class="form-content">
-        <label for="description" class="form-label">Description</label>
-        <textarea name="description" id="description" class="form-control autosize" placeholder="Enter Description" required></textarea>
-      </div>
-      <div class="form-content">
-        <button type="submit" class="btn button-secondary mt-2">Send</button>
-      </div>
+    <div class="form-content">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name">
+      @error('name')
+        <div class="alert alert-danger">{{ $message }}</div>
+      @enderror
+    </div>
+    <div class="form-content">
+      <label for="email" class="form-label">Email</label>
+      <input type="text" name="email" id="email" class="form-control" placeholder="Enter Email">
+      @error('email')
+        <div class="alert alert-danger">{{ $message }}</div>
+      @enderror
+    </div>
+    <div class="form-content">
+      <label for="description" class="form-label">Description</label>
+      <textarea name="description" id="description" class="form-control autosize" placeholder="Enter Description"></textarea>
+      @error('description')
+        <div class="alert alert-danger">{{ $message }}</div>
+      @enderror
+    </div>
+    <div class="form-content">
+      <button type="submit" class="btn button-secondary mt-2">Send</button>
+    </div>
   </form>
 @endsection

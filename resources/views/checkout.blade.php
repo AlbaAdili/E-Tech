@@ -13,19 +13,31 @@
                 <h1 class="mt-4 display-6" style="font-size: 30px;">Billing Information</h1>
                 <div class="form-content">
                     <label for="firstName" class="form-label">First Name</label>
-                    <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Enter First Name" required>
+                    <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Enter First Name">
+                    @error('firstName')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-content">
                     <label for="lastName" class="form-label">Last Name</label>
-                    <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Enter Last Name" required>
+                    <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Enter Last Name">
+                    @error('lastName')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-content">
                     <label for="email" class="form-label">Email</label>
-                    <input type="text" name="email" id="email" class="form-control" placeholder="name@example.com" required>
+                    <input type="text" name="email" id="email" class="form-control" placeholder="name@example.com">
+                    @error('email')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-content">
                     <label for="address" class="form-label">Address</label>
-                    <input type="text" name="address" id="address" class="form-control" placeholder="123 Main Street" required>
+                    <input type="text" name="address" id="address" class="form-control" placeholder="123 Main Street">
+                    @error('address')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-content">
                     <label for="address2" class="form-label">Address 2 (Optional)</label>
@@ -34,15 +46,24 @@
                 <div class="d-flex" style="gap: 10px;">
                     <div class="form-content m-0">
                         <label for="country" class="form-label">Country</label>
-                        <input type="text" name="country" id="country" class="form-control" placeholder="Enter Country" required>
+                        <input type="text" name="country" id="country" class="form-control" placeholder="Enter Country">
+                        @error('country')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-content m-0">
                         <label for="city" class="form-label">City</label>
-                        <input type="text" name="city" id="city" class="form-control" placeholder="Enter City" required>
+                        <input type="text" name="city" id="city" class="form-control" placeholder="Enter City">
+                        @error('city')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-content m-0">
                         <label for="zip" class="form-label">Zip</label>
-                        <input type="number" name="zip" id="zip" class="form-control" placeholder="Enter Zip" required>
+                        <input type="number" name="zip" id="zip" class="form-control" placeholder="Enter Zip">
+                        @error('zip')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
                 <div class="d-flex">

@@ -8,11 +8,17 @@
             @csrf 
             <div class="form-content">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name" required>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name">
+                @error('name')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="form-content">
                 <label for="price" class="form-label">Price</label>
-                <input type="number" name="price" id="price" class="form-control" placeholder="Enter Price" required>
+                <input type="number" name="price" id="price" class="form-control" placeholder="Enter Price">
+                @error('price')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="form-content">
                 <label for="image" class="form-label">Image</label>
