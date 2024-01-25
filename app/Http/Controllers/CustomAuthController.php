@@ -9,7 +9,7 @@ class CustomAuthController extends Controller
 {
     public function index()
     {
-        return view('login');
+        return view('auth/login');
     }
     public function customLogin(Request $request)
     {
@@ -21,11 +21,11 @@ class CustomAuthController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect()->intended(route('home.index'))->withSuccess('Signed in');
         }
-        return redirect("login");
+        return redirect("auth/login");
     }
     public function registration()
     {
-        return view('register');
+        return view('auth/register');
     }
     public function customRegistration(Request $request)
     {
@@ -49,7 +49,7 @@ class CustomAuthController extends Controller
     }
     public function signOutConfirmation()
     {
-        return view('signout');
+        return view('auth/signout');
     }
     public function customSignOut()
     {
