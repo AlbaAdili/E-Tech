@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Newsletter;
+use Illuminate\Support\Facades\Validator;
 
 class NewsletterController extends Controller
 {
