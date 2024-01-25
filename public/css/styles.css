@@ -133,6 +133,13 @@ input[type="file"] {
 .login-register:hover {
     text-decoration: underline;
 }
+.alert.alert-danger {
+    color: red;
+    background-color: transparent;
+    border: none;
+    padding: 0; 
+    margin-bottom: 0;
+}
 
 
 

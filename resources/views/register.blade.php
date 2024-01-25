@@ -10,24 +10,24 @@
         @csrf 
         <div class="form-content">
             <label for="name" class="form-label">Name</label>
-            <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name" required>
-            @if ($errors->has('name'))
-                <span class="text-danger">{{ $errors->first('name') }}</span>
-            @endif
+            <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name">
+            @error('name')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="form-content">
             <label for="email" class="form-label">Email</label>
-            <input type="text" name="email" id="email" class="form-control" placeholder="Enter Email" required>
-            @if ($errors->has('email'))
-                <span class="text-danger">{{ $errors->first('email') }}</span>
-            @endif
+            <input type="text" name="email" id="email" class="form-control" placeholder="Enter Email">
+            @error('email')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="form-content">
             <label for="password" class="form-label">Password</label>
-            <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
-            @if ($errors->has('password'))
-                <span class="text-danger">{{ $errors->first('password') }}</span>
-            @endif
+            <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+            @error('password')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="form-content">
             <button type="submit" class="btn button-secondary mt-2">Sign up</button>

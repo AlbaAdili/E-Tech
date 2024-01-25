@@ -31,7 +31,7 @@ class ProductController extends Controller
         ]);
     
         if ($validator->fails()) {
-            return redirect()->route('product.index')->withErrors($validator);
+            return redirect()->route('product.create')->withErrors($validator);
         }
     
         $originalFileName = null;
@@ -63,6 +63,10 @@ class ProductController extends Controller
             'price' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,webp',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('product.edit', ['product' => $id])->withErrors($validator);
+        }
     
         $product = Product::where('id', $id)->first();
         $product->name=$request->get('name');
@@ -176,6 +180,20 @@ class ProductController extends Controller
 
     public function processCheckout(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'email' => 'required|email',
+            'address' => 'required',
+            'country' => 'required',
+            'city' => 'required',
+            'zip' => 'required',
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->route('product.checkout')->withErrors($validator)->withInput();
+        }
+
         $order = Order::create([
             'user_id' => auth()->user()->id,
             'first_name' => $request->input('firstName'),
