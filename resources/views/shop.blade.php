@@ -6,10 +6,19 @@
     <div class="text-center mt-5">
         <h1 class="display-5 mt-2">Shop Products</h1>
     </div>
+    @if (Auth::user() && Auth::user()->role === 'admin')
+        <a href="{{ route('product.create') }}" class="btn button-primary mt-4" style="margin: 0 70px;">Add Product</a>
+    @endif
     <div class="mt-5 d-flex justify-content-between" style="margin: 0 70px;">
-        @if (Auth::user() && Auth::user()->role === 'admin')
-            <a href="{{ route('product.create') }}" class="btn button-primary">Add Product</a>
-        @endif
+        <div class="mt-3">
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="{{ route('shop') }}" class="category-link">All</a></li>
+                <li class="list-inline-item"><a href="{{ route('shop', ['category' => 'Apple']) }}" class="category-link">Apple</a></li>
+                <li class="list-inline-item"><a href="{{ route('shop', ['category' => 'Sony']) }}" class="category-link">Sony</a></li>
+                <li class="list-inline-item"><a href="{{ route('shop', ['category' => 'Logitech']) }}" class="category-link">Logitech</a></li>
+                <li class="list-inline-item"><a href="{{ route('shop', ['category' => 'Samsung']) }}" class="category-link">Samsung</a></li>
+            </ul>
+        </div>
         <form method="POST" action="{{ route('product.search') }}" class="d-flex">
             @csrf
             <input type="search" name="search" class="form-control me-2" placeholder="Search">
@@ -19,6 +28,9 @@
     <div class="card-container py-5">
         @if(isset($products) && $products->count() > 0)
             @foreach($products as $product)
+                @if(request('category') && !Str::contains($product->name, request('category')))
+                    @continue
+                @endif
                 <div class="card" style="width: 18rem;">
                     @if (Auth::user() && Auth::user()->role === 'admin')
                         <div class="card-body">

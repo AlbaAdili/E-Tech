@@ -35,6 +35,7 @@ Route::delete('/delete-cart-product', [ProductController::class, 'deleteFromCart
 Route::get('/checkout', [ProductController::class, 'checkout'])->name('product.checkout')->middleware('auth');
 Route::post('/checkout', [ProductController::class, 'processCheckout'])->name('product.processCheckout')->middleware('auth');
 Route::get('/order-confirmation', [ProductController::class, 'orderConfirmation'])->name('product.orderConfirmation')->middleware('auth');
+Route::get('/shop/{category?}', [ProductController::class, 'index'])->name('shop');
 
 Route::get('/faqs', [FaqsController::class, 'index'])->name('faqs.index');
 

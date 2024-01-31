@@ -36,3 +36,17 @@ function confirmDelete() {
 document.addEventListener('DOMContentLoaded', function() {
     autosize(document.querySelectorAll('.autosize'));
 });
+
+// var categoryLinks = document.querySelectorAll('.category-link');
+
+// categoryLinks.forEach(function(link) {
+//     link.addEventListener('click', function(event) {
+//         event.preventDefault();
+//         link.classList.toggle('active');
+//         categoryLinks.forEach(function(otherLink) {
+//             if (otherLink !== link) {
+//                 otherLink.classList.remove('active');
+//             }
+//         });
+//     });
+// });

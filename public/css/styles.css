@@ -140,6 +140,11 @@ input[type="file"] {
     padding: 0; 
     margin-bottom: 0;
 }
+.category-link {
+    text-decoration: none;
+    color: #0c6efd;
+    font-size: 1.1rem;
+}
 
 
 
