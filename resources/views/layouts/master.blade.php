@@ -54,10 +54,12 @@
                   <a href="{{ route('login') }}"><button type="button" class="btn button-primary me-2">Login</button></a>
                   <a href="{{ route('register') }}"><button type="button" class="btn button-secondary">Register</button></a>
                 @endif
-                <a href="{{ auth()->check() ? route('product.cart') : route('login') }}">
-                  <svg class="bi bi-cart ms-1" width="30" height="30" fill="#0c6efd"><use xlink:href="#cart"/></svg>
-                  <span class="quantity">{{ count((array) session('cart')) }}</span>
-                </a>
+                @unless (Auth::user() && Auth::user()->role === 'admin')
+                  <a href="{{ auth()->check() ? route('product.cart') : route('login') }}">
+                    <svg class="bi bi-cart ms-1" width="30" height="30" fill="#0c6efd"><use xlink:href="#cart"/></svg>
+                    <span class="quantity">{{ count((array) session('cart')) }}</span>
+                  </a>
+                @endunless
                 </div>
             </div>
         </div>
