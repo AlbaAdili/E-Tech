@@ -22,6 +22,13 @@
                 @enderror
             </div>
             <div class="form-content">
+                <label for="quantity" class="form-label">Quantity</label>
+                <input type="number" name="quantity" id="quantity" class="form-control" value="{{ $product->quantity }}" placeholder="Enter Quantity">
+                @error('quantity')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="form-content">
                 <label for="image" class="form-label">Image</label>
                 <input type="file" name="image" id="image" class="form-control" onchange="updateFileName(); updateImagePreview();">
                 <br>

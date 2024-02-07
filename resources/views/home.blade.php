@@ -49,10 +49,14 @@
                     <div style="height: 250px;"><img src="{{ asset('storage/' . $product->image) }}" class="card-img-top px-2" alt="{{$product->name}} Picture"></div>
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">{{$product->name}}</h5>
-                        <p class="card-text">${{$product->price}}</p>
-                        @unless (Auth::user() && Auth::user()->role === 'admin')
-                          <a href="{{ auth()->check() ? route('product.addToCart', $product->id) : route('login') }}" class="btn button-secondary mt-auto" style="width: 103px;">Add to cart</a>
-                        @endunless
+                        @if($product->quantity > 0)
+                          <p class="card-text">${{$product->price}}</p>
+                          @unless (Auth::user() && Auth::user()->role === 'admin')
+                            <a href="{{ auth()->check() ? route('product.addToCart', $product->id) : route('login') }}" class="btn button-secondary mt-auto" style="width: 103px;">Add to cart</a>
+                          @endunless
+                        @else
+                          <button class="btn button-secondary mt-auto" style="background-color: #c82333; width: 115px;">Out of stock</button>
+                        @endif
                     </div>
                 </div>
             @endforeach
