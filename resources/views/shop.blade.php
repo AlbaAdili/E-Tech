@@ -59,7 +59,9 @@
                 </div>
             @endforeach
             <div style="width: 90%">
-                {!! $products->withQueryString()->links('pagination::bootstrap-5') !!}
+                @if($products->count() > 0)
+                    {!! $products->links('pagination::bootstrap-5') !!}
+                @endif
             </div>
         @else
             <p class="display-6">No products found.</p>

@@ -105,7 +105,7 @@ class ProductController extends Controller
     {
         $search = $request->input('search');
 
-        $products = Product::where("name","LIKE","%$search%")->get();
+        $products = Product::where("name","LIKE","%$search%")->paginate(20);
         
         return view("shop",compact("products"));
     }
