@@ -27,6 +27,7 @@ class ProductController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'price' => 'required',
+            'quantity' => 'required|integer|min:1', 
             'image' => 'image|mimes:jpeg,png,jpg,gif,webp',
         ]);
     
@@ -44,6 +45,7 @@ class ProductController extends Controller
         $product = Product::create([
             'name' => $request->get('name'),
             'price' => $request->get('price'),
+            'quantity' => $request->get('quantity'),
             'image' => 'images/' . $originalFileName,
         ]);
     
@@ -61,6 +63,7 @@ class ProductController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'price' => 'required',
+            'quantity' => 'required|integer|min:1',
             'image' => 'image|mimes:jpeg,png,jpg,gif,webp',
         ]);
 
@@ -71,6 +74,7 @@ class ProductController extends Controller
         $product = Product::where('id', $id)->first();
         $product->name=$request->get('name');
         $product->price=$request->get('price');
+        $product->quantity = $request->get('quantity');
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->storeAs('public/images', $request->file('image')->getClientOriginalName());
             $product->image = 'images/' . $request->file('image')->getClientOriginalName();
@@ -216,6 +220,9 @@ class ProductController extends Controller
                 'quantity' => $item['quantity'],
                 'total_price' => $item['price'] * $item['quantity'],
             ]);
+            $product = Product::findOrFail($productId);
+            $product->quantity -= $item['quantity'];
+            $product->save();
         }
 
         $request->session()->forget('cart');
