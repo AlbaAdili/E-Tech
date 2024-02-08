@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Validator;
+use App\Services\ContactServiceInterface;
 
 class ContactController extends Controller
 {
+    protected $contactService;
+
+    public function __construct(ContactServiceInterface $contactService)
+    {
+        $this->contactService = $contactService;
+    }
+
     public function index()
     {
         $messages = Contact::all();
@@ -21,23 +29,14 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email',
             'description' => 'required',
         ]);
-    
-        if ($validator->fails())
-        {
-            return redirect()->route('contact.create')->withErrors($validator);
-        }
 
-        Contact::create([
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'description' => $request->get('description'),
-        ]);
-    
+        $this->contactService->storeContact($request); 
+
         return redirect()->route('contact.create')->with('success', 'Message Sent');
     }
 
