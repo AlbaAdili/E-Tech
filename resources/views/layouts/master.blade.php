@@ -96,8 +96,8 @@
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Email:</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">contact@company.com</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Phone:</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">+383 (0) 45 226 208</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Gjilan, Kosovo</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">+389 (0) 71 226 208</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Tetovo, North Macedonia</a></li>
           </div>
           <div class="col-md-5 offset-md-1 mb-3">
           <form id="newsletterForm" action="{{ route('subscribe.newsletter') }}" method="post">
